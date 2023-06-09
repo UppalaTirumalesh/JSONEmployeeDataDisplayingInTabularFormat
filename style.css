@@ -1,0 +1,27 @@
+.active {
+    background-color: #3568b6;
+  }
+  .table{
+    display: inline;
+  }
+  #table_size{
+    background-color: rgb(88, 223, 130);
+  }
+  
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .index_buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .index_buttons button {
+    margin: 0 5px;
+    padding: 7px;
+  }
+  

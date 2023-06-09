@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Table</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+
+  <div class="table">
+    <div class="tab_head_container">
+      <div class="page_limit">
+        <span>Shows </span>
+        <select id="table_size">
+          <option value="5" selected>5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+        </select>
+        <span> entries</span>
+       </div>
+    </div>
+  </div>
+
+  <div id="search-bar" class="d-flex justify-content-center">
+    <input class="form-control mr-sm-2 w-50 p-3" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchEmployees()">Search</button>
+  </div>
+  
+
+  <table id="employeeTable" class="table">
+    <thead id="tableHeading">
+      <tr>
+        <th>Employee Id</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <!-- <div class="pagination" id="pagination"></div> -->
+
+  <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Employee</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="editForm" action="#">
+            <div class="form-group">
+              <label for="editEmployeeId">Employee ID</label>
+              <input type="text" class="form-control" id="editEmployeeId" required>
+            </div>
+            <div class="form-group">
+              <label for="editFirstName">First Name</label>
+              <input type="text" class="form-control" id="editFirstName" required>
+            </div>
+            <div class="form-group">
+              <label for="editLastName">Last Name</label>
+              <input type="text" class="form-control" id="editLastName" required>
+            </div>
+            <div class="form-group">
+              <label for="editFullName">Full Name</label>
+              <input type="text" class="form-control" id="editFullName" required>
+            </div>
+            <div class="form-group">
+              <label for="editJobTitle">Job Title</label>
+              <input type="text" class="form-control" id="editJobTitle" required>
+            </div>
+            <div class="form-group">
+              <label for="editPhoneNumber">Phone Number</label>
+              <input type="text" class="form-control" id="editPhoneNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="editEmailAddress">Email Address</label>
+              <input type="email" class="form-control" id="editEmailAddress" required>
+            </div>
+            <div class="form-group">
+              <label for="editAddressLine1">Address Line 1</label>
+              <input type="text" class="form-control" id="editAddressLine1" required>
+            </div>
+            <div class="form-group">
+              <label for="editAddressLine2">Address Line 2</label>
+              <input type="text" class="form-control" id="editAddressLine2">
+            </div>
+            <div class="form-group">
+              <label for="editCity">City</label>
+              <input type="text" class="form-control" id="editCity" required>
+            </div>
+            <div class="form-group">
+              <label for="editState">State</label>
+              <input type="text" class="form-control" id="editState" required>
+            </div>
+            <div class="form-group">
+              <label for="editPostalCode">Postal Code</label>
+              <input type="text" class="form-control" id="editPostalCode" required>
+            </div>
+            <div class="form-group">
+              <label for="editCountry">Country</label>
+              <input type="text" class="form-control" id="editCountry" required>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="saveChanges()" id="saveChanges">Save Changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <div class="footer" id="footerContainer">
+    <span id="entries_info">Showing 1 to 10 of 60 entries</span>
+    <div class="index_buttons">
+      <button id="prev_button">Previous</button>
+      <button class="active index_button">1</button>
+      <button class="index_button">2</button>
+      <button class="index_button">3</button>
+      <button class="index_button">4</button>
+      <button class="index_button">5</button>
+      <button class="index_button">6</button>
+      <button id="next_button">Next</button>
+    </div>
+  </div>
+  
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
